@@ -1,0 +1,56 @@
+@media (max-width: 600px) {
+  body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-container {
+    background: rgb(105, 110, 128);
+  }
+  .timer-container h2 {
+    color:rgb(178, 59, 46);
+  }
+
+  /* 質問を格子状にレイアウトする */
+  .q1, .q2, .q3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px; /* 各質問の間にスペースを追加 */
+  }
+
+  legend {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  label {
+    display: block;
+    font-size: 1.1em;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    border: 2px solid #006DD9;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s; /* 色変化にアニメーションを追加 */
+  }
+
+  input[type=radio] {
+    display: none;  /*radioボタンの丸を消す*/
+  }
+  
+  /* 選択されたときのスタイルを強調 */
+  input[type="radio"]:checked + label {
+    background: #89c8ec;
+    color: #ffffff;
+    border-color: #31A9EE; /* ボーダーも選択された色に変更 */
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+  }
+}

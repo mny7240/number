@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>数あてゲーム</title>
+</head>
+<body>
+  <div class="header-container">
+    <h1>数あてゲーム☻</h1>
+    <p>1~100の中で数を当てよう</p>
+  </div>
+  <div class="timer-container">
+    <h2>残り時間: <span id="timer">90</span>秒</h2>
+  </div>
+  <div class="question-container">
+    <form>
+      <fieldset>
+        <legend>質問</legend>   <!--グループ化できる-->
+        <div class="q1">
+          <input type="radio" name="question" value="1" id="gusu">
+          <label for="gusu" class="label">偶数ですか？</label>
+          <input type="radio" name="question" value="2" id="three">
+          <label for="three" class="label">3で割り切れますか？</label>
+        </div>
+        <div class="q2">
+          <input type="radio" name="question" value="3" id="five"> 
+          <label for="five" class="label">5で割り切れますか？</label>
+          <input type="radio" name="question" value="4" id="fifty">
+          <label for="fifty" class="label">50以上ですか？</label>
+        </div>
+        <div class="q3">
+          <input type="radio" name="question" value="5" id="twenty-five">
+          <label for="twenty-five" class="label">25以上ですか？</label>
+          <input type="radio" name="question" value="6" id="seventy-five"> 
+          <label for="seventy-five" class="label">75以上ですか？</label>
+        </div>
+
+        <button type="button">質問する(⌒∇⌒)</button>
+      </fieldset>
+    </form>
+    <h2>回答</h2>
+    <p id="answer">ここに回答が表示されます。</p>
+    
+    <p>質問カウント数 : 0</p>
+  </div>
+  
+  <div class="correct-container">
+    <form>
+      <input type="number" placeholder="number" class="number">
+      <button type="button">送信</button>
+    </form>
+    <h2>正誤</h2>
+    <p id="numberAnswer">正誤が表示されます</p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
