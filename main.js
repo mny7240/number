@@ -14,7 +14,13 @@
 
       if (timeLeft <= 0) {
         clearInterval(timerId);
-        alert('時間切れ！ゲームオーバーです');
+        const open = document.getElementById('open');
+        const modal = document.getElementById('modal');
+        const mask = document.getElementById('mask');
+    
+        modal.classList.remove('hidden');  //hiddenを消すことで逆にmodalを表示
+        mask.classList.remove('hidden');
+        document.getElementById('result').textContent = `記録 : 失敗!!(-_-;)`;
         disableGame(); // ゲームを終了する関数を呼び出す
       }
     }, 1000); //1000ミリ秒 = 1秒
@@ -24,6 +30,12 @@
     // ボタンを無効にする
     document.querySelector('.question-container button').disabled = true;
     document.querySelector('.correct-container button').disabled = true;
+  }
+
+  function ableGame() {
+    // ボタンを無効にする
+    document.querySelector('.question-container button').disabled = false;
+    document.querySelector('.correct-container button').disabled = false;
   }
 
   //button(質問する)がクリックされたら
@@ -74,6 +86,14 @@
       documentNumberAnswer.textContent = '正解です!!!';
       clearInterval(timerId);
       disableGame();
+      const open = document.getElementById('open');
+      const modal = document.getElementById('modal');
+      const mask = document.getElementById('mask');
+  
+      modal.classList.remove('hidden');  //hiddenを消すことで逆にmodalを表示
+      mask.classList.remove('hidden');
+      let result = 90-timeLeft;
+      document.getElementById('result').textContent = `congratulations!!!\n記録 : ${result}秒`;
     } else if (timeLeft > 0) {
       documentNumberAnswer.textContent = '不正解です';
     } else {
@@ -87,6 +107,29 @@
   const numberButton = document.querySelector('.correct-container button');
   numberButton.addEventListener('click', showNumberAnswer);
 
-  // ゲームスタート時にタイマーを開始する
-  startTimer();
+  // クリックしたらタイマーを開始する
+  const start = document.querySelector('.start-button button');
+
+  start.addEventListener('click', () => {
+    startTimer();   //タイマーを開始
+    ableGame();
+  })
+
+  disableGame();
+
+  //モーダルウィンドウを作る
+  const close = document.getElementById('close');
+  const modal = document.getElementById('modal');
+  const mask = document.getElementById('mask');
+
+  close.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    mask.classList.add('hidden');
+  });
+
+  mask.addEventListener('click', () => {
+    // modal.classList.add('hidden');
+    // mask.classList.add('hidden');
+    close.click();
+  });
 }

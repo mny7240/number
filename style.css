@@ -10,6 +10,7 @@
 
   .header-container {
     background: rgb(105, 110, 128);
+    padding: 0;
   }
   .timer-container h2 {
     color:rgb(178, 59, 46);
@@ -52,5 +53,72 @@
   fieldset {
     border: none;
     padding: 0;
+  }
+
+  button {
+    padding: 8px;
+  }
+
+  .input-container {
+    display: flex;
+    gap: 32px;
+  }
+
+  .input {
+    padding: 16px 8px;
+  }
+  .flex {
+    display: flex;
+    border-bottom: 1px solid #31A9EE;
+  }
+
+  .timer {
+    padding: 0;
+  }
+  
+  #open, #close {
+    cursor: pointer;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    padding: 12px 0;
+    margin: 16px auto 0;
+  }
+  
+  #mask {
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  #modal {
+    background: #fff;
+    width: 300px;
+    padding: 20px;
+    border-radius: 4px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transition: transform 0.4s;
+    z-index: 2;
+  }
+  
+  #modal > p {
+    margin: 0 0 20px;  /*いい感じに余白をそろえる*/
+  }
+
+  #mask.hidden {
+    display: none;
+  }
+
+  #modal.hidden {
+    transform: translate(0, -700px);
   }
 }
